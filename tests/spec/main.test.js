@@ -15,3 +15,16 @@ describe('hello', function() {
 
   })
 })
+
+describe('getGithubRepo', function() {
+  it('should return a repository object', function (done) {
+    getGithubRepo('bdfinlayson', function(repo){
+      repo[0].owner.login.should.equal('bdfinlayson');
+      done();
+    });
+    getGithubRepo('sscotth', function(repo){
+      repo[1].owner.login.should.equal('sscotth');
+    });
+  })
+});
+

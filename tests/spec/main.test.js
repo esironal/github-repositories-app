@@ -22,9 +22,13 @@ describe('getGithubRepo', function() {
       repo[0].owner.login.should.equal('bdfinlayson');
       done();
     });
+  });
+  it('should return another repository object', function (done) {
     getGithubRepo('sscotth', function(repo){
-      repo[1].owner.login.should.equal('sscotth');
+    repo[0].owner.login.should.equal('sscotth');
+    done();
     });
   })
 });
+
 

@@ -16,5 +16,17 @@ function getGithubRepo(userLogin, cb) {
 };
 
 
+function addRepoToGrid(repository) {
+
+  var $col = ('<div class="col-1-1">' + repository.name + " " + repository.login + '</div>');
+
+
+  $('div.grid').append($col);
+
+  return $col;
+
+}
+
+
 
 

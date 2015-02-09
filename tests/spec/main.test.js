@@ -29,6 +29,34 @@ describe('getGithubRepo', function() {
     done();
     });
   })
+  it('should contain a login key', function(done) {
+    getGithubRepo('bdfinlayson', function(repo){
+
+      repo[0].owner.should.contain.keys('login');
+      done();
+    });
+  });
 });
 
+describe('addRepoToGrid', function () {
+
+  it('should add a repo to the page', function () {
+
+    var repository = { login: 'bdfinlayson', name: 'awesome-weather-app' };
+      $('.col-1-1').length.should.equal(0);
+      addRepoToGrid(repository);
+      $('.col-1-1').length.should.equal(1);
+  });
+  it('should add another repository to the page', function () {
+    var repository = { login: 'bdfinlayson', name: 'awesome-weather-app' };
+    var $col = addRepoToGrid(repository);
+
+    $('body').find('div.col-1-1').length.should.equal(2);
+  });
+  it('should display the login text', function() {
+    var repository = { login: 'bdfinlayson', name: 'awesome-weather-app' };
+    var $col = addRepoToGrid(repository);
+    expect($col).to.contain('bdfinlayson');
+  });
+});
 

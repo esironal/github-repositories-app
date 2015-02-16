@@ -60,3 +60,16 @@ describe('addRepoToGrid', function () {
   });
 });
 
+describe('get username', function() {
+  it('should get a username from the user', function() {
+    var username = 'bdfinlayson';
+    var userInput = $('<input type="text" class="input" value="bdfinlayson"></input>');
+    $('body').append(userInput);
+    $('.input').innerHTML = username;
+    var response = $('.input').val();
+
+    //var repo = getGithubRepo();
+    expect(response).to.be.an('string');
+  });
+});
+

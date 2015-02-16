@@ -10,6 +10,11 @@ function getGithubRepo(userLogin, cb) {
   var urlEnd = '/repos';
   var url = urlBase + userLogin + urlEnd;
 
+  console.log(urlBase);
+  console.log(userLogin);
+  console.log(urlEnd);
+  console.log(url);
+
   $.get(url, function(repo) {
     return cb(repo)
   });
@@ -26,7 +31,6 @@ function addRepoToGrid(repository) {
   return $col;
 
 }
-
 
 
 
